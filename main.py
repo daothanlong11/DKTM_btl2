@@ -49,16 +49,16 @@ def q_function(a_locate,lr,gamma, posible_move_position,Q_table,R_talbe,number_t
 
     # khoi tao ma tran R-table tu du kien bai toan
 
+################################ khoi tao R table ###################################
 R_talbe = np.array([[0, -1, +1, -1, -1, -1], [-1, -100, -1, -1, -100, -1],
                     [-1, -1, +1, -1, -1, +1], [-100, -1, -1, -100, -1, -1], [-1, +1, -1, -1, +100, -1]])
 height = np.shape(R_talbe)[0]
 width = np.shape(R_talbe)[1]
-print(R_talbe[1,1])
 
-# khoi tao ma tran 0 cua Q learning
+############################### khoi tao ma tran 0 cua Q learning #########################
 Q_table = np.zeros((height, width), dtype=float)
 
-# khoi tao stt cua tung buoc di trong table
+######################### khoi tao stt cua tung buoc di trong table #######################
 number_table = np.zeros((height,width),dtype=int)
 number = 0
 for i in range(height):
@@ -66,7 +66,7 @@ for i in range(height):
         number_table[i,j] = number
         number+=1
 
-# phan code chay chinh
+###################################### phan code chay chinh#####################################
 s_0 = int(input("nhap stt cua vi tri state ban dau: "))
 s0_locate = convert_int2locate(s_0,number_table)
 posible_move_position,list_posible_move = position(height, width, s0_locate,number_table)
@@ -80,6 +80,7 @@ for i in range(episode):
     s_locate = a_locate
     posible_move_position,list_posible_move = position(height,width,s_locate,number_table)
 
+############################### ghi ket qua ra file excel de theo doi ####################################
 with open("D:\code\python\DKTM_btl2\R_Q_table.csv",'w') as csvfile:
     write = csv.writer(csvfile,delimiter=',')
     for i in range(height):
