@@ -13,9 +13,9 @@ for i in range(height):
     for j in range(width):
         ax[i,j].axes.get_xaxis().set_visible(False)
         ax[i,j].axes.get_yaxis().set_visible(False)
-robot = mpimg.imread("E:\\robot_icon.png")
-mine = mpimg.imread("E:\\mine_icon.png")
-lightning = mpimg.imread("E:\\lightning_icon.png")
+robot = mpimg.imread(add+"\\robot_icon.png")
+mine = mpimg.imread(add+"\mine_icon.png")
+lightning = mpimg.imread(add+"\lightning_icon.png")
 ax[0,0].imshow(robot)
 ax[0,2].imshow(lightning)
 ax[2,2].imshow(lightning)
@@ -25,7 +25,7 @@ ax[1,1].imshow(mine)
 ax[1,4].imshow(mine)
 ax[3,0].imshow(mine)
 ax[3,3].imshow(mine)
-plt.savefig("D:\\code\\btl2\\map\\map_0.png")
+plt.savefig(add+"\map\map_0.png")
 
 ########################### xay dung so do di cho robot ##########################
 def position_score(height, width, number_locate,Q_table):
@@ -80,11 +80,11 @@ for i in range((len(map_locate)-1)):
         circle = plt.Circle((0,0.5),200,color='k')
         ax[map_locate[i][0],map_locate[i][1]].add_patch(circle)
         ax[map_locate[i+1][0],map_locate[i+1][1]].imshow(robot)
-        plt.savefig("D:\\code\\btl2\\map\\map_%d.png"%(i+1))
+        plt.savefig(add+"\map\map_%d.png"%(i+1))
 
 gif_name = 'map_move'
 fps = 5
-file_list = glob.glob('D:\\code\\btl2\\map\\*.png') # Get all the pngs in the current directory
+file_list = glob.glob(add+'\map\*.png') # Get all the pngs in the current directory
 list.sort(file_list, key=lambda x: int(x.split('_')[1].split('.png')[0])) # Sort the images by #, this may need to be tweaked for your use case
 clip = mpy.ImageSequenceClip(file_list, fps=fps)
-clip.write_gif('D:\\code\\btl2\\map\\{}.gif'.format(gif_name), fps=fps)
+clip.write_gif(add+'\map\{}.gif'.format(gif_name), fps=fps)

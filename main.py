@@ -2,7 +2,9 @@ from __future__ import print_function
 import numpy as np
 import csv
 import random
+import os
 
+add = os.path.dirname(os.path.realpath(__file__))
 def position(height, width, number_locate,number_table):
     position_table = np.zeros((height+2, width+2), dtype=int)
     a_position_row = number_locate[0]+1
@@ -81,7 +83,7 @@ for i in range(episode):
     posible_move_position,list_posible_move = position(height,width,s_locate,number_table)
 
 ############################### ghi ket qua ra file excel de theo doi ####################################
-with open("D:\code\python\DKTM_btl2\R_Q_table.csv",'w') as csvfile:
+with open(add+"\R_Q_table.csv",'w') as csvfile:
     write = csv.writer(csvfile,delimiter=',')
     for i in range(height):
         write.writerow(R_talbe[i,:])
