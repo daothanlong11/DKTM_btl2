@@ -59,6 +59,7 @@ def evaluate(posible_position_with_score,Q_table):
         locate_max_score = np.array([increase_score[len(increase_score)-1][0],increase_score[len(increase_score)-1][1]])
         a = int(locate_max_score[0])
         b = int(locate_max_score[1])
+        Q_table[a,b] = -99999999999
         return a,b
 
 map_locate = []
@@ -78,7 +79,7 @@ def run(locate,target_locate):
         for x in mine_table:
            if (np.array_equal(x,new_locate)==True):
                map_locate.append(new_locate)
-               return 
+               return
         map_locate.append(new_locate)
         locate = new_locate
 run(locate,target_locate)

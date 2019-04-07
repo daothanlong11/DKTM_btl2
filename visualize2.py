@@ -61,6 +61,7 @@ def evaluate(posible_position_with_score,Q_table):
         locate_max_score = np.array([increase_score[len(increase_score)-1][0],increase_score[len(increase_score)-1][1]])
         a = int(locate_max_score[0])
         b = int(locate_max_score[1])
+        Q_table[a,b] = -999999999
         return a,b
 
 map_locate = []
