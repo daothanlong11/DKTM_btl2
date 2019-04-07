@@ -44,7 +44,6 @@ def position_score(height, width, number_locate,Q_table):
                    (a_position_col-1):(a_position_col+2)] = all_move + position_filter
     p = np.where(position_table == 1)
     position = []
-    list_position = []
     for i in range((np.shape(p))[1]):
         if (((p[0][i]) > 0) & ((p[0][i]) < (height+1)) & ((p[1][i]) > 0) & ((p[1][i]) < (width+1))):
             position.append([(p[0][i]-1), (p[1][i]-1)])
@@ -60,7 +59,6 @@ def evaluate(posible_position_with_score,Q_table):
         locate_max_score = np.array([increase_score[len(increase_score)-1][0],increase_score[len(increase_score)-1][1]])
         a = int(locate_max_score[0])
         b = int(locate_max_score[1])
-        Q_table[a,b] = -999999999
         return a,b
 
 map_locate = []
