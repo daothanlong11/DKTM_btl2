@@ -23,7 +23,7 @@ def position(height, width, number_locate,number_table):
     position = []
     list_position = []
     for i in range((np.shape(p))[1]):
-        if (((p[0][i]) > 0) & ((p[0][i]) < 6) & ((p[1][i]) > 0) & ((p[1][i]) < 7)):
+        if (((p[0][i]) > 0) & ((p[0][i]) < (height+1)) & ((p[1][i]) > 0) & ((p[1][i]) < (width+1))):
             position.append([(p[0][i]-1), (p[1][i]-1)])
     for value in position:
         value.append(number_table[value[0],value[1]])
