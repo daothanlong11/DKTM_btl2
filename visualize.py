@@ -25,7 +25,7 @@ for i in range(l_lightning_len):
     ax[l_lightning[0][i], l_lightning[1][i]].imshow(lightning)
 for i in range(l_mine_len):
     ax[l_mine[0][i], l_mine[1][i]].imshow(mine)
-plt.savefig(add+"\\map\\map_0.png")
+plt.savefig(add+"\\map1\\map_0.png")
 
 ########################### xay dung so do di cho robot ##########################
 def position_score(height, width, number_locate,Q_table):
@@ -89,11 +89,11 @@ for i in range((len(map_locate)-1)):
         circle = plt.Circle((0,0.5),200,color='k')
         ax[map_locate[i][0],map_locate[i][1]].add_patch(circle)
         ax[map_locate[i+1][0],map_locate[i+1][1]].imshow(robot)
-        plt.savefig(add+"\map\map_%d.png"%(i+1))
+        plt.savefig(add+"\map1\map_%d.png"%(i+1))
 
 gif_name = 'map_move'
 fps = 2
-file_list = glob.glob(add+'\map\*.png') # Get all the pngs in the current directory
+file_list = glob.glob(add+'\map1\*.png') # Get all the pngs in the current directory
 list.sort(file_list, key=lambda x: int(x.split('_')[1].split('.png')[0])) # Sort the images by #, this may need to be tweaked for your use case
 clip = mpy.ImageSequenceClip(file_list, fps=fps)
-clip.write_gif(add+'\map\{}.gif'.format(gif_name), fps=fps)
+clip.write_gif(add+'\map1\{}.gif'.format(gif_name), fps=fps)
