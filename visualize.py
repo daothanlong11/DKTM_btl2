@@ -92,7 +92,7 @@ for i in range((len(map_locate)-1)):
         plt.savefig(add+"\map\map_%d.png"%(i+1))
 
 gif_name = 'map_move'
-fps = 5
+fps = 2
 file_list = glob.glob(add+'\map\*.png') # Get all the pngs in the current directory
 list.sort(file_list, key=lambda x: int(x.split('_')[1].split('.png')[0])) # Sort the images by #, this may need to be tweaked for your use case
 clip = mpy.ImageSequenceClip(file_list, fps=fps)
